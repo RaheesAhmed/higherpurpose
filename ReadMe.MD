@@ -1,7 +1,5 @@
 # AI Image Generator
 
-![AI Image Generator](screenshots/main.PNG)
-
 ## Overview
 
 The AI Image Generator is a robust Node.js application utilizing the Express.js framework. This application leverages OpenAI's DALL-E 3 model to generate images based on user inputs, creating a seamless and interactive experience.
