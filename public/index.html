@@ -15,7 +15,7 @@
       crossorigin="anonymous"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Future Selfie™ - AI Image Generator</title>
+    <title>Future Selfie™ - higher purpose image generator</title>
     <!-- Link to Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -175,7 +175,7 @@
           padding: 80px 0px 40px 0px;
         "
       >
-        ai image generator
+        higher purpose image generator
       </p>
     </header>
     <!-- Section for Welcome and Video Placeholder -->
@@ -186,24 +186,33 @@
         <div class="col-md-6">
           <!-- Placeholder for the video; replace with actual video element or embed code -->
           <div class="embed-responsive embed-responsive-16by9">
-            <iframe
-              class="embed-responsive-item"
-              <!--
-              src="https://player.vimeo.com/video/906563295?app_id=122963&autoplay=1&controls=1"
-              --
-            >
-              frameborder="0" allow="autoplay; fullscreen" allowfullscreen
-              ></iframe
+            <div>
+              <iframe
+                src="https://player.vimeo.com/video/912407234?h=3a52891f27&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                style="
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                "
+                title="Suzette, purpose video 1"
+              ></iframe>
+            </div>
+            <script src="https://player.vimeo.com/api/player.js"></script>
             >
           </div>
         </div>
         <!-- Text description column -->
-        <div class="col-md-6">
-          <h2 class="mb-4"></h2>
+        <div class="col-md-6" style="top: 50px !important">
           <p>
-            After your guided visualization, it's time to crystallize your
-            vision. Use the form below to describe a pivotal moment of your
-            future self in your envisioned future.
+            Welcome to our purpose image generator, where your purpose
+            transforms into powerful visuals. Our platform leverages
+            cutting-edge ai to craft images that embody your deepest values and
+            mission. Dive into a world where creativity meets purpose, and your
+            imagination shapes a healthy future.
           </p>
         </div>
       </div>
@@ -233,8 +242,8 @@
         <!-- Each form group for inputs -->
         <div class="form-group" style="background: white">
           <label for="sceneDescription" class=""
-            >1. Briefly describe the main scene, the pivotal moment of your
-            journey *</label
+            >1. Imagine a scenario or event where your or your organization’s
+            purpose is vividly and successfully realized *</label
           >
           <textarea
             class="form-control"
@@ -242,80 +251,70 @@
             name="mainScene"
             rows="2"
             required
-            placeholder="provide a short description of the scene, 3-4 sentences max."
+            placeholder="describe an inspiring scene."
           ></textarea>
         </div>
 
         <div class="form-group">
-          <label for="locationDescription" class=""
-            >2. Describe the location *</label
-          >
+          <label for="locationDescription" class="">2. Location *</label>
           <input
             type="text"
             class="form-control"
             id="location"
             name="location"
             required
-            placeholder="eg in nature, at a conference, a festival, etc"
+            placeholder="describe the venue where this scene takes place"
           />
         </div>
 
         <div class="form-group">
-          <label for="characterDescription" class=""
-            >3. Describe the main character of this scene. *</label
-          >
+          <label for="characterDescription" class="">3. Main character *</label>
           <input
             type="text"
             class="form-control"
             id="mainCharacter"
             name="mainCharacter"
             required
-            placeholder="eg male in his mid 30's, European descent, physically fit and happy, with a mustache wearing a white linen shirt."
+            placeholder="where does this scene take place? describe the venue."
           />
         </div>
 
         <div class="form-group">
-          <label for="additionalCharacters" class=""
-            >4. Are there additional characters present in the scene?</label
+          <label for="emotionalAtmosphere" class=""
+            >4. Emotional atmosphere</label
           >
           <input
             type="text"
             class="form-control"
-            id="additionalCharacters"
-            name="additionalCharacters"
-            placeholder="If so, who might they be?"
+            id="emotionalAtmosphere"
+            name="emotionalAtmosphere"
+            placeholder="describe the vibe"
           />
         </div>
 
         <div class="form-group">
-          <label class="form-check-label" for="newsletterSignup"
-            >5. Would you like to receive a copy of your FutureSelf™ along with
-            tips on how to turn your vision into reality?</label
-          >
-          <input type="checkbox" class="w-8 h-8" id="imageCopy" name="imageCopy" /> Yes
-        </div>
-
-        <div class="form-group">
-          <label for="additionalInfo" class=""
-            >6. Is there anything else you would like to share?</label
+          <label for="distinctiveDetails" class=""
+            >6. Distinctive Details</label
           >
           <textarea
             class="form-control"
-            id="additionalInfo"
+            id="distinctiveDetails"
+            name="distinctiveDetails"
             rows="3"
+            placeholder="add distinctive details that that represent you or your company"
           ></textarea>
         </div>
 
         <div class="form-row">
           <div class="col">
-            <label for="firstName" class="">First Name *</label>
+            <label for="fullName" class="">Full Name *</label>
             <input
               type="text"
               class="form-control"
               placeholder="First Name"
-              name="firstName"
+              name="fullName"
+              id="fullName"
               required
-              id="firstName"
             />
           </div>
           <div class="col">
@@ -332,13 +331,13 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="Organization" class="">Organization </label>
+          <label for="organization" class="">Organization </label>
           <input
             type="text"
             class="form-control"
             placeholder="Organization"
-            name="Organization"
-            id="Organization"
+            name="organization"
+            id="organization"
           />
         </div>
 
@@ -391,23 +390,31 @@
         <div class="col-md-6">
           <!-- Placeholder for the video; replace with actual video element or embed code -->
           <div class="embed-responsive embed-responsive-16by9">
-            <iframe
-              class="embed-responsive-item"
-              src="https://player.vimeo.com/video/906563286?app_id=122963&autoplay=1&controls=1"
-            >
-              frameborder="0" allow="autoplay; fullscreen" allowfullscreen
-              ></iframe
-            >
+            <div>
+              <iframe
+                src="https://player.vimeo.com/video/912407218?h=ebc47e1841&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                style="
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%;
+                "
+                title="Suzette, thank you video"
+              ></iframe>
+            </div>
+            <script src="https://player.vimeo.com/api/player.js"></script>
           </div>
         </div>
         <!-- Text description column -->
-        <div class="col-md-6">
-          <h2 class="mb-4"></h2>
+        <div class="col-md-6" style="top: 50px !important">
           <p>
-            Let your FutureSelfie™ become a powerful tool in your journey of
-            goal setting and motivation. Consider taking an inspired action
-            today that brings you one step closer to your vision. Remember,
-            small changes accumulate over time.
+            Thank you for creating your purpose image. May this be the first
+            step on your ongoing journey to your higher purpose. Leave a message
+            and let us know how well the image reflected your purpose or what
+            was missing. We will be happy to hear from you.
           </p>
           <p>
             <span style="color: #b3226a; font-weight: 800">
@@ -482,17 +489,17 @@
           // AJAX request to backend
           $.ajax({
             type: "POST",
-            url: "https://futureselfie.replit.app/generate-images", // Your API endpoint
+            url: "http://localhost:3000/generate-images", // Your API endpoint
             data: $(this).serialize(), // Form data
             contentType: "application/x-www-form-urlencoded; charset=UTF-8",
             success: function (response) {
-            $("#loadingSkeleton").hide(); // Hide the loading message
-            if (response.imageData) {
-              $("#generatedImage").attr("src", response.imageData).show(); // Show the generated image
-            } else {
-              console.error("No image data received.");
-            }
-          },
+              $("#loadingSkeleton").hide(); // Hide the loading message
+              if (response.imageData) {
+                $("#generatedImage").attr("src", response.imageData).show(); // Show the generated image
+              } else {
+                console.error("No image data received.");
+              }
+            },
           });
         });
       });

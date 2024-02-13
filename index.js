@@ -20,7 +20,7 @@ dotenv.config();
 const apiKey = process.env["OPENAI_API_KEY"];
 const openai = new OpenAI({ apiKey });
 
-const port = 8000;
+const port = 3000;
 const upload = multer();
 app.use(cors());
 
@@ -47,23 +47,22 @@ const jwtClient = new google.auth.JWT(
 // Initialize the Google Drive API client
 const drive = google.drive({ version: "v3", auth: jwtClient });
 
-const csvFilePath = path.join(__dirname, "FutureSelfie-New-Data.csv"); // Define the path for the CSV file
+const csvFilePath = path.join(__dirname, "Future4u-New-Data.csv"); // Define the path for the CSV file
 
 const savetocsv = async (
-  firstName,
+  fullName,
   email,
   mainScene,
   location,
   mainCharacter,
-  additionalCharacters,
-  additionalInfo,
-  imageCopy,
+  emotionalAtmosphere,
+  distinctiveDetails,
   imageUrl,
-  Organization
+  organization
 ) => {
   const headers =
-    "First Name,Email,Main Scene,Location,Main Character,Additional Characters,Additional Info,Image Copy,Image Link,Organization\n";
-  const data = `${firstName},${email},${mainScene},${location},${mainCharacter},${additionalCharacters},${additionalInfo},${imageCopy},${imageUrl},${Organization}\n`;
+    "First Name,Email,Main Scene,Location,Main Character,Emotional Atmosphere,distinctiveDetails,Image Link,Organization\n";
+  const data = `${fullName},${email},${mainScene},${location},${mainCharacter},${emotionalAtmosphere},${distinctiveDetails},${imageUrl},${organization}\n`;
 
   try {
     await fs.promises.access(csvFilePath, fs.constants.F_OK);
@@ -101,7 +100,7 @@ const addTextToImage = async (imageBuffer, text) => {
 };
 
 const handleCSVOnGoogleDrive = async (csvFilePath) => {
-  const fileName = "FutureSelfie-New-Data.csv";
+  const fileName = "Future4u-New-Data.csv";
   const folderId = process.env.GOOGLE_FOLDER_ID;
   console.log("Uploading CSV to Google Drive. Folder ID:", folderId);
 
@@ -148,18 +147,17 @@ app.post("/generate-images", upload.none(), async (req, res) => {
   console.log("data recieved:", req.body);
   try {
     const {
-      firstName,
+      fullName,
       email,
       mainScene,
       location,
       mainCharacter,
-      additionalCharacters,
-      additionalInfo,
-      imageCopy,
-      Organization,
+      emotionalAtmosphere,
+      distinctiveDetails,
+      organization,
     } = req.body;
 
-    const prompt = `Create a cinematic still in 32k resolution and landscape format depicting ${mainScene}, located at ${location}. The main character is ${mainCharacter}. Additional characters include ${additionalCharacters}. ${additionalInfo}`;
+    const prompt = `Create an ultra-high-definition, 32k resolution cinematic still in a panoramic landscape format. The scene unfolds at ${location}, featuring a vivid portrayal of ${mainScene}. At the heart of the narrative is ${mainCharacter}, whose appearance and demeanor radiate a sense of ${emotionalAtmosphere}. To enrich the visual storytelling, incorporate elements such as ${distinctiveDetails}, ensuring a multi-layered and immersive experience.`;
 
     const imageResponse = await openai.images.generate({
       model: "dall-e-3",
@@ -195,16 +193,14 @@ app.post("/generate-images", upload.none(), async (req, res) => {
     });
 
     await savetocsv(
-      firstName,
-      email,
       mainScene,
       location,
       mainCharacter,
-      additionalCharacters,
-      additionalInfo,
-      imageCopy,
-      imageUrl,
-      Organization
+      emotionalAtmosphere,
+      distinctiveDetails,
+      fullName,
+      email,
+      organization
     );
     // After sending response, upload the updated CSV to Google Drive
     await handleCSVOnGoogleDrive(csvFilePath);
